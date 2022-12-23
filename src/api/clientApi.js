@@ -10,14 +10,14 @@ const baseApi =  axios.create({
 })
 export const createComment = async(data) =>{
   try{
-    const res = await baseApi.post("comments", data)
+    const res = await baseApi.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/comments`, data)
   }catch(err){
     console.log(err);
   }
 }
 export const getComment = async() =>{
   try{
-    const res = await baseApi.get("comments")
+    const res = await baseApi.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/comments`)
     return res.data;
   }catch(err){
     console.log(err);
@@ -26,7 +26,7 @@ export const getComment = async() =>{
 export const deleteComment = async({commentId, password}) =>{
   try{
     console.log({commentId})
-    const res = await baseApi.delete("comments", {
+    const res = await baseApi.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/comments`, {
       data : {commentId, password}
     })
   }catch(err){
@@ -35,7 +35,7 @@ export const deleteComment = async({commentId, password}) =>{
 }
 export const getProjectList = async() =>{
   try{
-    const res = await baseApi.get("projects")
+    const res = await baseApi.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/projects`)
     return res.data;
   }catch(err){
     console.log(err);
