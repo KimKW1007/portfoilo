@@ -1,4 +1,4 @@
-import { projectConnect } from '../connect/project';
+import { projectConnect } from '../connect/project.js';
 import { Router } from 'express';
 
 const projectRouter = Router();
@@ -11,4 +11,4 @@ projectRouter.get('/', async (req, res) => {
     res.status(401).send("오류");
   }
 });
-
+export {projectRouter};

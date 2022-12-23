@@ -1,4 +1,4 @@
-import { commentConnect } from '../connect/comment';
+import { commentConnect } from '../connect/comment.js';
 import { Router } from 'express';
 
 const commentRouter = Router();
@@ -35,3 +35,4 @@ commentRouter.delete('/', async (req, res, next) => {
     res.status(401).send("오류");
   }
 });
+export {commentRouter};

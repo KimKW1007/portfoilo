@@ -1,7 +1,7 @@
 import cors from "cors";
 import express from "express";
-import { commentConnect } from "./connect/comment.js";
-import { projectConnect } from "./connect/project.js";
+import { commentRouter } from "./router/comments.js";
+import { projectRouter } from "./router/project.js";
 
 const app = express();
 
@@ -18,8 +18,8 @@ app.get("/", (req, res) => {
 });
 
 // router, service 구현 (userAuthRouter는 맨 위에 있어야 함.)
-app.use("/projects", projectConnect);
-app.use("/comments", commentConnect);
+app.use("/projects", projectRouter);
+app.use("/comments", commentRouter);
 
 
 
