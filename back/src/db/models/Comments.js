@@ -13,13 +13,13 @@ class Comments {
   static async findAll() {
     return CommentModel.find({}).sort({ createdAt: -1 });
   }
-  static async findByCommentId(id) {
-    return CommentModel.findById({id});
+  static async findByCommentId(commentId) {
+    return CommentModel.findOne({commentId});
   }
 
 
-  static async delete(id) {
-    return CommentModel.findOneAndDelete({ id });
+  static async delete(commentId) {
+    return CommentModel.findOneAndDelete({ commentId });
   }
 
 

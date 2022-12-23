@@ -22,10 +22,11 @@ export const getComment = async() =>{
     console.log(err);
   }
 }
-export const deleteComment = async({id, password}) =>{
+export const deleteComment = async({commentId, password}) =>{
   try{
+    console.log({commentId})
     const res = await baseApi.delete("http://localhost:5001/comments", {
-      data : {id, password}
+      data : {commentId, password}
     })
   }catch(err){
     throw err.response;

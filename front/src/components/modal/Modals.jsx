@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Error} from "@styled-icons/boxicons-regular"
 import { ModalDesc, ModalInputBox, Dim, ModalBtnBox, ModalBox, ModalTitle } from './modalStyle';
 
-export default function Modals({id, mode, comment, setIsModalOpen, setCheckPW, setModalSubject, handleDeleteFn, handleCreateCommentFn, onSubmitState}) {
+export default function Modals({commentId, name, mode, comment, setIsModalOpen, setCheckPW, setModalSubject, handleDeleteFn, handleCreateCommentFn, onSubmitState}) {
   const queryClient = useQueryClient();
   const [deletePW, setDeletePW] = useState("");
   const handleIdentify = ()=>{
@@ -15,7 +15,7 @@ export default function Modals({id, mode, comment, setIsModalOpen, setCheckPW, s
       });
     }
     if(mode  === "remind"){
-      handleDeleteFn(id);
+      handleDeleteFn(commentId);
     }
     if(mode === "notWriter" || mode === "success" || mode === "noPW"){
       queryClient.invalidateQueries(['getCommentKey']);

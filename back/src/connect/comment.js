@@ -1,5 +1,5 @@
-import bcrypt from "bcrypt";
-import {Comments} from "../db/index.js";
+import bcrypt from 'bcrypt';
+import { Comments } from '../db/index.js';
 
 class commentConnect {
   static async addComment({ comment, name, password }) {
@@ -10,27 +10,26 @@ class commentConnect {
     const createdComment = await Comments.create({
       name,
       comment,
-      password: hashedPassword,
+      password: hashedPassword
     });
     return createdComment;
   }
-  
-  static async getComment() {
-    const comments = await Comments.findAll();
-    return comments;
-  }
-  static async removeComment({ id, password }) {
 
-    const data = await Comments.findByCommentId(id);
-    
-    const hashedPassword = await bcrypt.compare(password , data.password);
-    if(!hashedPassword) return {errorMessage : "비밀번호 틀림"}
-    if(hashedPassword){
-      const deleteComment = await Comments.delete({
-        id
-      });
-      return deleteComment;
+  static async getComment() {
+    const data = await Comments.findAll();
+
+    return data;
+  }
+  static async removeComment({commentId, password}) {
+    const data = await Comments.findByCommentId(commentId);
+    if(!data){
+      throw new Error("유저없음")
+    }
+    const hashedPassword = await bcrypt.compare(password, data.password);
+    if (!hashedPassword) throw new Error("비밀번호아님")
+    if (hashedPassword) {
+      return Comments.delete(commentId);
     }
   }
 }
-export {commentConnect};
+export { commentConnect };

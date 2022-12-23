@@ -11,28 +11,29 @@ commentRouter.post('/', async (req, res, next) => {
       password,
       comment
     });
-    res.status(201).json(newComment);
+    return res.status(201).json(newComment);
   } catch (error) {
-    res.status(401).send("오류");
+    return res.status(401).send('Post 오류');
   }
 });
 commentRouter.get('/', async (req, res, next) => {
   try {
     const comments = await commentConnect.getComment();
-    res.status(200).send(comments);
+    return res.status(200).send(comments);
   } catch (error) {
-    res.status(401).send("오류");
+    return res.status(401).send('Get 오류');
   }
 });
 commentRouter.delete('/', async (req, res, next) => {
   try {
-    const { id, password } = req.body;
+    const { commentId, password } = req.body;
     await commentConnect.removeComment({
-      id, password
+      commentId,
+      password
     });
-    res.status(200).send("삭제완료");
+    return res.status(200).send('삭제완료');
   } catch (error) {
-    res.status(401).send("오류");
+    return res.status(401).send('Delete 오류');
   }
 });
-export {commentRouter};
+export { commentRouter };

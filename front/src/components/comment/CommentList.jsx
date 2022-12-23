@@ -41,29 +41,29 @@ export default function CommentList() {
       </LoadingBox>
     );
   }
-  const handleDeleteConfirm = (id) => () => {
-    setCurrentId(id);
+  const handleDeleteConfirm = (commentId) => () => {
+    setCurrentId(commentId);
     setIsModalOpen(true);
     setModalSubject({
       mode: 'delete',
       comment: '비밀번호를 입력해주세요'
     });
   };
-  const handleDeleteFn = (id) => () => {
-    deleteCommentMutate.mutate({ id, password: checkPW });
+  const handleDeleteFn = (commentId) => () => {
+    deleteCommentMutate.mutate({ commentId, password: checkPW });
   };
   return (
     <ListBox>
       <ul>
-        {data?.map(({ id, name, comment, created_at }) => (
-          <li key={id}>
+        {data?.map(({ commentId, name, comment, createdAt }) => (
+          <li key={commentId}>
             <div className="author">
               <h3>{name}</h3>
-              <button onClick={handleDeleteConfirm(id)}>삭제</button>
+              <button onClick={handleDeleteConfirm(commentId)}>삭제</button>
             </div>
             <div className="comment">{comment.includes('\n') ? comment.split('\n').map((ele) => <p key={ele + id}>{ele}</p>) : comment}</div>
-            <div className="date">{fixDate(created_at)}</div>
-            {isModalOpen && currentId === id && <Modals id={id} mode={mode} comment={modalComment} handleDeleteFn={handleDeleteFn(id)} setModalSubject={setModalSubject} setIsModalOpen={setIsModalOpen} setCheckPW={setCheckPW} />}
+            <div className="date">{fixDate(createdAt)}</div>
+            {isModalOpen && currentId === commentId && <Modals commentId={commentId} name={name} mode={mode} comment={modalComment} handleDeleteFn={handleDeleteFn(commentId)} setModalSubject={setModalSubject} setIsModalOpen={setIsModalOpen} setCheckPW={setCheckPW} />}
           </li>
         ))}
       </ul>
