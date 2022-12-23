@@ -5,7 +5,7 @@ import { useRecoilValue } from 'recoil';
 import { counter } from '../../../state/atoms';
 import Loading from './Loading';
 import NotFound from '../../../pages/404';
-import { getProjectList } from '../../lib/clientApi';
+import { getProjectList } from '../../api/clientApi';
 import { LayoutBox, LayoutWrap } from './appLayOutStyle';
 import { LoadingBox } from '../project/slideWrapStyle';
 

@@ -12,7 +12,7 @@ import 'swiper/css';
 import 'swiper/css/effect-creative';
 import 'swiper/css/navigation';
 import { useQuery } from '@tanstack/react-query';
-import { getProjectList } from '../../lib/clientApi';
+import { getProjectList } from '../../api/clientApi';
 import Loading from '../common/Loading';
 import { ImgBox, LoadingBox, NextBtn, PrevBtn, SwiperContainer, TextBox } from './slideWrapStyle';
 

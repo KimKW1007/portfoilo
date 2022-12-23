@@ -5,7 +5,7 @@ import { Star } from '@styled-icons/boxicons-solid';
 import { useForm } from 'react-hook-form';
 import { NextFetchEvent } from 'next/server';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createComment } from '../../lib/clientApi';
+import { createComment } from '../../api/clientApi';
 import { useRecoilState } from 'recoil';
 import { modalAtom } from '../../../state/atoms';
 import Modals from '../modal/Modals';

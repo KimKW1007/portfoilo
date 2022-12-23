@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { modalAtom } from '../../../state/atoms';
-import { deleteComment, getComment } from '../../lib/clientApi';
+import { deleteComment, getComment } from '../../api/clientApi';
 import { fixDate } from '../../utils/fixDate';
 import Loading from '../common/Loading';
 import Modals from '../modal/Modals';

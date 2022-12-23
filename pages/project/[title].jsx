@@ -8,7 +8,7 @@ import { counter, projectImgsData } from '../../state/atoms';
 import { LeftArrowAlt, RightArrowAlt } from '@styled-icons/boxicons-regular';
 import Loading from '../../src/components/common/Loading';
 import NotFound from '../404';
-import { getProjectList } from '../../src/lib/clientApi';
+import { getProjectList } from '../../src/api/clientApi';
 import { useQuery } from '@tanstack/react-query';
 import { IndicatorBox, ItemContentBox, ItemDescBox, ItemDetailTextBox, ItemImgBox, ItemInfoBox, ItemPromotionBox, ItemTitleBox, PdContainer, Root, RootContainer } from '../../styles/pagesStyles/project/titleStyle';
 import { LoadingBox } from '../../src/components/project/slideWrapStyle';
@@ -95,7 +95,7 @@ export default function ProjectInner() {
                   <li>제작 기여도 : {contribution}</li>
                   <li className={configuration?.includes('Team') ? 'teamTolls' : ''}>
                     제작 스택
-                    {configuration?.includes('Team') ? tools.map(({tools: tool}) => <p key={tool}>{tool}</p>) : <> : {tools}</>}
+                    {configuration?.includes('Team') ? tools.map(({ tools: tool }) => <p key={tool}>{tool}</p>) : <> : {tools}</>}
                   </li>
                 </ul>
               </ItemInfoBox>

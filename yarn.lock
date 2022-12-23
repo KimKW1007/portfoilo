@@ -3109,7 +3109,7 @@
     "@prisma/generator-helper" "^4.6.0"
     "dotenv" "^16.0.3"
 
-"prisma@*", "prisma@^4.6.0":
+"prisma@*":
   "integrity" "sha512-TAnObUMGCM9NLt9nsRs1WWYQGPKsJOK8bN/7gSAnBcYIxMCFFDe+XtFYJbyTzsJZ/i+0rH4zg8au3m7HX354LA=="
   "resolved" "https://registry.npmjs.org/prisma/-/prisma-4.6.0.tgz"
   "version" "4.6.0"
