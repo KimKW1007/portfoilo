@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Comments {
+  id         Int   @id @default(autoincrement())
+  comment    String
+  created_at DateTime @default(now())
+  name       String
+  password   String
+}
+
+
+
+model Project {
+  id              Int    @id @default(autoincrement())
+  color           String
+  configuration   String
+  contribution    String
+  descriptionDesc String
+  descriptionHead String
+  distributeLink  String
+  period          String
+  promotionDesc   String
+  promotionHead   String
+  title           String
+  tools           ToolsToProjects[]
+}
+model ToolsToProjects{
+  id              Int    @id @default(autoincrement())
+  projectId       Int
+  project         Project @relation(fields: [projectId], references: [id])
+  tools           String
+
+  @@index([projectId])
+}
