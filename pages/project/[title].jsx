@@ -62,7 +62,7 @@ export default function ProjectInner() {
       </LoadingBox>
     );
   }
-  const { title: itemTitle, configuration, descriptionHead, descriptionDesc, distributeLink, period, contribution, tools, promotionHead, promotionDesc } = currentPjItem;
+  const { title: itemTitle, configuration, descriptionHead, descriptionDesc, distributeLink, githubLink, period, contribution, tools, promotionHead, promotionDesc } = currentPjItem;
   return (
     <Root>
       <RootContainer>
@@ -84,8 +84,8 @@ export default function ProjectInner() {
           </ItemDescBox>
           <ItemContentBox>
             <ItemImgBox image={currentPjImg.src}>
-              <Link href={distributeLink === undefined ? '' : distributeLink}>
-                <a target="_blank" className="imgBg" title={`${configuration?.includes('Team') ? itemTitle : `${itemTitle}Clone`} 바로가기`}></a>
+              <Link href={`${githubLink}`}>
+                <a target="_blank" className="imgBg" title={`GitHub 바로가기`}></a>
               </Link>
             </ItemImgBox>
             <ItemDetailTextBox>
@@ -95,19 +95,40 @@ export default function ProjectInner() {
                   <li>제작 기여도 : {contribution}</li>
                   <li className={configuration?.includes('Team') ? 'teamTolls' : ''}>
                     제작 스택
-                    {configuration?.includes('Team') ? tools.map(({ tools: tool }) => <p key={tool}>{tool}</p>) : <> : {tools}</>}
+                    {configuration?.includes('Team') ? (
+                        tools.map((ele,idx) => (
+                          <div key={ele}>
+                            <span>{idx===0?"Front-End :":"Back-End :"}</span>
+                            <span>{ele}</span>
+                          </div>
+                        ))
+                    ) : (
+                      <> : {tools}</>
+                    )}
                   </li>
                 </ul>
               </ItemInfoBox>
               <ItemPromotionBox>
                 <h3>{splitMap(promotionHead)}</h3>
                 <p>{splitMap(promotionDesc)}</p>
-                <Link href={distributeLink === undefined ? '' : distributeLink}>
-                  <a target="_blank" title={`${configuration?.includes('Team') ? itemTitle : `${itemTitle}Clone`} 바로가기`}>
-                    바로가기
-                    <RightArrowAlt />
-                  </a>
-                </Link>
+                <div>
+                  <Link href={`${githubLink}`}>
+                    <a target="_blank" title={`Github 바로가기`} >
+                      깃허브 바로가기
+                      <RightArrowAlt />
+                    </a>
+                  </Link>
+                </div>
+                {distributeLink && 
+                <div>
+                  <Link href={`${distributeLink}`}>
+                    <a target="_blank" title={`${configuration?.includes('Team') ? itemTitle : `${itemTitle}Clone`} 바로가기`}>
+                      작업물 보러가기
+                      <RightArrowAlt />
+                    </a>
+                  </Link>
+                </div>
+                }
               </ItemPromotionBox>
             </ItemDetailTextBox>
           </ItemContentBox>
