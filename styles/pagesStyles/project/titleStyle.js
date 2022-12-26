@@ -148,7 +148,7 @@ display: flex;
 align-items: center;
 height: 600px;
 margin-top: 200px;
-@media ${({ theme }) => theme.device.d1228} {
+@media ${({ theme }) => theme.device.d1300} {
   display: block;
   height: auto;
 }
@@ -190,7 +190,7 @@ justify-content: space-between;
 @media (max-width: 1650px) {
   padding-left: 2.7878vw;
 }
-@media ${({ theme }) => theme.device.d1228} {
+@media ${({ theme }) => theme.device.d1300} {
   padding-top: 100px;
   text-align: center;
   padding-left: 0;
@@ -206,8 +206,13 @@ ul {
     padding-left: 16px;
     position: relative;
     line-height: 1.2;
-    p {
+    div {
+      display:flex;
       padding: 6px 0 0 10px;
+      span:nth-child(1){
+        flex-shrink:0;
+        margin-right:4px;
+      }
     }
     & + li {
       margin-top: 10px;
@@ -225,14 +230,14 @@ ul {
     }
     &.teamTolls {
       &::before {
-        top: 7px;
+        top: 8px;
       }
     }
     p {
     }
   }
 }
-@media ${({ theme }) => theme.device.d1228} {
+@media ${({ theme }) => theme.device.d1300} {
   padding-top: 0;
   ul {
     li {
@@ -262,20 +267,29 @@ h3 {
 p {
   margin-bottom: 30px;
 }
-a {
-  color: ${({ theme }) => theme.colors.white};
-  display: inline-flex;
-  align-items: center;
-  svg {
-    width: 20px;
-    height: 20px;
-    margin-top: 2px;
+div{
+  padding: 5px 0;
+  a {
+    color: ${({ theme }) => theme.colors.white};
+    display: inline-flex;
+    align-items: center;
+    svg {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+    }
   }
 }
-@media ${({ theme }) => theme.device.d1228} {
+@media ${({ theme }) => theme.device.d1300} {
   padding-top: 50px;
-  a {
-    justify-content: center;
+  div{
+      padding: 10px 0;
+    a {
+      justify-content: center;
+      svg {
+        display:none;
+      }
+    }
   }
 }
 @media ${({ theme }) => theme.device.d860} {
