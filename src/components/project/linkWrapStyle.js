@@ -97,7 +97,6 @@ export const LinkBox = styled.div`
       }
     }
     &:hover{
-      color: ${({theme})=> theme.colors.white};
       &:nth-child(1){
         background: ${({theme})=> theme.colors.linkBtnColor1};
         color:${({theme})=> theme.colors.white};
@@ -114,7 +113,6 @@ export const LinkBox = styled.div`
         }
       }
       &:nth-child(2){
-        animation-delay: .3s;
         background: ${({theme})=> theme.colors.white};
         color: ${({theme})=> theme.colors.linkBtnColor2};
         span{
@@ -127,6 +125,22 @@ export const LinkBox = styled.div`
           svg{
             color:${({theme})=> theme.colors.white};
           }
+        }
+      }
+    }
+    &.disabled-link{
+      pointer-events: none;
+      background: #999;
+      color: ${({theme})=> theme.colors.white};
+      span{
+        &::before,&::after{
+          background: #999;
+        }
+      }
+      .iconBox{
+        background:  ${({theme})=> theme.colors.white};
+        svg{
+          color: #999;
         }
       }
     }
