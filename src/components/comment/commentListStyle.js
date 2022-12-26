@@ -37,9 +37,7 @@ export const ListBox = styled.div`
       .comment {
         font-size: 17px;
         margin-bottom: 20px;
-        p {
-          word-break: break-all;
-        }
+        word-break: keep-all;
         .date {
         }
       }

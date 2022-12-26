@@ -61,7 +61,7 @@ export default function CommentList() {
               <h3>{name}</h3>
               <button onClick={handleDeleteConfirm(commentId)}>삭제</button>
             </div>
-            <div className="comment">{comment.includes('\n') ? comment.split('\n').map((ele) => <p key={ele + id}>{ele}</p>) : comment}</div>
+            <div className="comment">{comment.includes('\n') ? comment.split('\n').map((ele) => <p key={ele + commentId}>{ele}</p>) : comment}</div>
             <div className="date">{fixDate(createdAt)}</div>
             {isModalOpen && currentId === commentId && <Modals commentId={commentId} name={name} mode={mode} comment={modalComment} handleDeleteFn={handleDeleteFn(commentId)} setModalSubject={setModalSubject} setIsModalOpen={setIsModalOpen} setCheckPW={setCheckPW} />}
           </li>
