@@ -5,7 +5,7 @@ import { LinkBox } from './linkWrapStyle';
 
 
 export default function LinkWrap({currentLink, currentTitle}) {
-  
+
   return (
     <LinkBox>
       <Link href={`/project/${currentTitle}`}>
@@ -17,7 +17,7 @@ export default function LinkWrap({currentLink, currentTitle}) {
         </a>
       </Link>
       <Link href={`${currentLink}`}>
-        <a target="_blank">
+        <a target="_blank" className={`${currentLink ? "" : "disabled-link"}`} onClick={(e)=> {!currentLink && e.preventDefault()}}>
           <span>WEBSITE</span>
           <div className='iconBox'>
             <Play/>
