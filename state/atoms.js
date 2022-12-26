@@ -1,6 +1,6 @@
 import { Folder, Home, CommentDots, User } from '@styled-icons/boxicons-regular';
 import { BarChartSquare } from '@styled-icons/boxicons-solid';
-import { wepo, megabox, naverClova, litho, daelim, starbucks, pofo, tomntoms } from '../src/assests/images/projectImg';
+import { bodytory, dasida, wepo, megabox, naverClova, litho, daelim} from '../src/assests/images/projectImg';
 
 import { atom } from 'recoil';
 
@@ -97,5 +97,5 @@ export const counter = atom({
 
 export const projectImgsData = atom({
   key: 'atomProjectsImgs',
-  default: [wepo, megabox, naverClova, litho, daelim, starbucks, pofo, tomntoms ]
+  default: [  bodytory, dasida, wepo, megabox, naverClova, litho, daelim ]
 });
