@@ -62,7 +62,7 @@ export default function ProjectInner() {
       </LoadingBox>
     );
   }
-  const { title: itemTitle, configuration, descriptionHead, descriptionDesc, distributeLink, githubLink, period, contribution, tools, promotionHead, promotionDesc } = currentPjItem;
+  const { title: itemTitle, configuration, descriptionHead, descriptionDesc, distributeLink, videoLink, githubLink, period, contribution, tools, promotionHead, promotionDesc } = currentPjItem;
   return (
     <Root>
       <RootContainer>
@@ -83,9 +83,9 @@ export default function ProjectInner() {
             </div>
           </ItemDescBox>
           <ItemContentBox>
-            <ItemImgBox image={currentPjImg.src}>
+            <ItemImgBox image={currentPjImg.src} isDasida={itemTitle === "Dasida"}>
               <Link href={`${githubLink}`}>
-                <a target="_blank" className="imgBg" title={`GitHub 바로가기`}></a>
+                <a  target="_blank" className="imgBg" title={`GitHub 바로가기`}></a>
               </Link>
             </ItemImgBox>
             <ItemDetailTextBox>
@@ -124,6 +124,16 @@ export default function ProjectInner() {
                   <Link href={`${distributeLink}`}>
                     <a target="_blank" title={`${configuration?.includes('Team') ? itemTitle : `${itemTitle}Clone`} 바로가기`}>
                       작업물 보러가기
+                      <RightArrowAlt />
+                    </a>
+                  </Link>
+                </div>
+                }
+                {videoLink && 
+                <div>
+                  <Link href={`${videoLink}`}>
+                    <a target="_blank" title={`${itemTitle} 시연 영상 보러가기`}>
+                      시연영상 보러가기
                       <RightArrowAlt />
                     </a>
                   </Link>

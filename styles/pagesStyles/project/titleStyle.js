@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Root = styled.div`
 color: ${({ theme }) => theme.colors.white};
@@ -171,6 +171,9 @@ justify-content: center;
   background-size: cover;
   box-shadow: 30px 30px 15px 5px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
+  ${({isDasida}) => isDasida && css`
+    border : 1px solid #eeeeee20;
+  `}
 }
 @media ${({ theme }) => theme.device.d768} {
   .imgBg {
