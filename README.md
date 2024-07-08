@@ -40,4 +40,4 @@
    - 댓글 부분에 재미있는 댓글 및 저에 대한 피드백? 남겨주시면 감사하겠습니다!!
    ヾ(≧▽≦*)o || ψ(｀∇´)ψ
   
-  ### <a href="https://github.com/KimKW1007/portfoilo-back" title="Back cord 보러가기" >Back cord 보러가기</a>
+  ### <a href="https://github.com/KimKW1007/portfoilo-back" title="Back code 보러가기" >Back code 보러가기</a>
